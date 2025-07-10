@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
+import SEOHead from './SEOHead';
 
 const TestimonialsSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -61,7 +62,12 @@ const TestimonialsSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section id="testimonials" className="py-20 bg-white" itemScope itemType="https://schema.org/Review">
+      <SEOHead 
+        title="המלצות - ציפי מסינג | מה אומרים הלקוחות"
+        description="קראו המלצות מרגשות מהורים, מנהלות בתי ספר ורכזות על השירות המקצועי והאכפתי של ציפי מסינג. ביקורות של 5 כוכבים!"
+        keywords="המלצות, ביקורות, ציפי מסינג, לקוחות מרוצים, הורים, בתי ספר, רכזות, שירות מקצועי"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">מה אומרים עליי</h2>
@@ -73,21 +79,21 @@ const TestimonialsSection: React.FC = () => {
           <div className="relative overflow-hidden bg-gradient-to-br from-orange-100 via-red-100 to-purple-100 rounded-3xl shadow-xl border border-red-200 min-h-[300px]">
             <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(${currentSlide * -100}%)` }}>
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="w-full flex-shrink-0 p-8 md:p-12 flex flex-col justify-center">
+                <div key={index} className="w-full flex-shrink-0 p-8 md:p-12 flex flex-col justify-center" itemScope itemType="https://schema.org/Review">
                   <div className="flex items-center justify-center mb-6">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-6 h-6 text-yellow-500 fill-current mx-1" />
                     ))}
                   </div>
-                  <p className="text-gray-700 mb-8 text-xl leading-relaxed italic text-center">
+                  <p className="text-gray-700 mb-8 text-xl leading-relaxed italic text-center" itemProp="reviewBody">
                     "{testimonial.content}"
                   </p>
-                  <div className="flex items-center justify-center">
+                  <div className="flex items-center justify-center" itemProp="author" itemScope itemType="https://schema.org/Person">
                     <div className="bg-gradient-to-br from-orange-200 to-red-200 rounded-full p-4 ml-4">
                       <Heart className="w-8 h-8 text-red-700" />
                     </div>
                     <div className="text-center">
-                      <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
+                      <h4 className="font-bold text-gray-900 text-lg" itemProp="name">{testimonial.name}</h4>
                       <p className="text-gray-600">{testimonial.role}</p>
                     </div>
                   </div>

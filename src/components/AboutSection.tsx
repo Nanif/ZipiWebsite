@@ -1,12 +1,18 @@
 import React from 'react';
 import { Heart, Sparkles, Users } from 'lucide-react';
+import SEOHead from './SEOHead';
 
 const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-white" itemScope itemType="https://schema.org/Person">
+      <SEOHead 
+        title="מי אני - ציפי מסינג | מפעילה מקצועית לילדות"
+        description="הכירו את ציפי מסינג - מפעילה מקצועית לילדות עם ניסיון רב. גישה ייחודית המבוססת על יחס אישי, אכפתיות ותשומת לב לכל ילדה."
+        keywords="ציפי מסינג, מפעילה לילדות, ניסיון בהפעלות, יחס אישי, מקצועיות, חינוך ילדים"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">מי אני</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" itemProp="name">מי אני</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto rounded-full"></div>
         </div>
         
@@ -19,13 +25,13 @@ const AboutSection: React.FC = () => {
                 <Heart className="w-8 h-8 text-red-600 mx-auto" />
               </div>
               <div>
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">ציפי מסינג</h3>
-                <p className="text-xl text-red-600 font-semibold mb-4"> מפעילה מקצועית לילדות בס''ד מרובה</p>
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2" itemProp="name">ציפי מסינג</h3>
+                <p className="text-xl text-red-600 font-semibold mb-4" itemProp="jobTitle"> מפעילה מקצועית לילדות בס''ד מרובה</p>
               </div>
             </div>
             
             {/* Main description with belief integrated */}
-            <div className="space-y-6">
+            <div className="space-y-6" itemProp="description">
               <p className="text-lg text-gray-700 leading-relaxed">
                 אני כאן כדי להפוך כל פעילות לחוויה ערכית, מהנה ומלאת משמעות. עם ניסיון של שנים בהפעלות לילדות בגילאי בית ספר, פיתחתי גישה ייחודית שמבוססת על עיקרון פשוט:
               </p>
