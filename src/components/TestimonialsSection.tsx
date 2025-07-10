@@ -77,15 +77,16 @@ const TestimonialsSection: React.FC = () => {
         <div className="relative max-w-4xl mx-auto">
           {/* Main testimonial display */}
           <div className="relative overflow-hidden bg-gradient-to-br from-orange-100 via-red-100 to-purple-100 rounded-3xl shadow-xl border border-red-200 min-h-[300px]">
-            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(${currentSlide * -100}%)` }}>
+            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(${currentSlide * 100}%)` }}>
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="w-full flex-shrink-0 p-8 md:p-12 flex flex-col justify-center" itemScope itemType="https://schema.org/Review">
+                <div key={index} className="w-full flex-shrink-0 flex flex-col justify-center" itemScope itemType="https://schema.org/Review">
+                  <div className="p-8 md:p-12">
                   <div className="flex items-center justify-center mb-6">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-6 h-6 text-yellow-500 fill-current mx-1" />
                     ))}
                   </div>
-                  <p className="text-gray-700 mb-8 text-xl leading-relaxed italic text-center" itemProp="reviewBody">
+                  <p className="text-gray-900 mb-8 text-xl leading-relaxed italic text-center font-medium" itemProp="reviewBody">
                     "{testimonial.content}"
                   </p>
                   <div className="flex items-center justify-center" itemProp="author" itemScope itemType="https://schema.org/Person">
@@ -94,8 +95,9 @@ const TestimonialsSection: React.FC = () => {
                     </div>
                     <div className="text-center">
                       <h4 className="font-bold text-gray-900 text-lg" itemProp="name">{testimonial.name}</h4>
-                      <p className="text-gray-600">{testimonial.role}</p>
+                      <p className="text-gray-700 font-medium">{testimonial.role}</p>
                     </div>
+                  </div>
                   </div>
                 </div>
               ))}
