@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Heart } from 'lucide-react';
 
 interface HeaderProps {
   isMenuOpen: boolean;
@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen }) => {
           <div className="flex items-center flex-shrink-0">
             <img 
               src="/logo.png" 
-              alt="JumpKids - קפיצות של אושר" 
+              alt="logo" 
               className="h-20 w-auto"
             />
           </div>
