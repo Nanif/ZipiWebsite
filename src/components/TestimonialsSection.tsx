@@ -3,6 +3,7 @@ import { Star, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const TestimonialsSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const testimonials = [
     {
@@ -33,11 +34,24 @@ const TestimonialsSection: React.FC = () => {
   ];
 
   const nextSlide = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+    setTimeout(() => setIsTransitioning(false), 500);
   };
 
   const prevSlide = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setTimeout(() => setIsTransitioning(false), 500);
+  };
+
+  const goToSlide = (index: number) => {
+    if (isTransitioning || index === currentSlide) return;
+    setIsTransitioning(true);
+    setCurrentSlide(index);
+    setTimeout(() => setIsTransitioning(false), 500);
   };
 
   // Auto-slide every 5 seconds
@@ -56,37 +70,48 @@ const TestimonialsSection: React.FC = () => {
         
         <div className="relative max-w-4xl mx-auto">
           {/* Main testimonial display */}
-          <div className="bg-gradient-to-br from-orange-100 via-red-100 to-purple-100 p-8 md:p-12 rounded-3xl shadow-xl border border-red-200 min-h-[300px] flex flex-col justify-center transition-all duration-500 ease-in-out">
-            <div className="flex items-center justify-center mb-6">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 text-yellow-500 fill-current mx-1" />
+          <div className="relative overflow-hidden bg-gradient-to-br from-orange-100 via-red-100 to-purple-100 rounded-3xl shadow-xl border border-red-200 min-h-[300px]">
+            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(${currentSlide * -100}%)` }}>
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="w-full flex-shrink-0 p-8 md:p-12 flex flex-col justify-center">
+                  <div className="flex items-center justify-center mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-6 h-6 text-yellow-500 fill-current mx-1" />
+                    ))}
+                  </div>
+                  <p className="text-gray-700 mb-8 text-xl leading-relaxed italic text-center">
+                    "{testimonial.content}"
+                  </p>
+                  <div className="flex items-center justify-center">
+                    <div className="bg-gradient-to-br from-orange-200 to-red-200 rounded-full p-4 ml-4">
+                      <Heart className="w-8 h-8 text-red-700" />
+                    </div>
+                    <div className="text-center">
+                      <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
+                      <p className="text-gray-600">{testimonial.role}</p>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
-            <p className="text-gray-700 mb-8 text-xl leading-relaxed italic text-center">
-              "{testimonials[currentSlide].content}"
-            </p>
-            <div className="flex items-center justify-center">
-              <div className="bg-gradient-to-br from-orange-200 to-red-200 rounded-full p-4 ml-4">
-                <Heart className="w-8 h-8 text-red-700" />
-              </div>
-              <div className="text-center">
-                <h4 className="font-bold text-gray-900 text-lg">{testimonials[currentSlide].name}</h4>
-                <p className="text-gray-600">{testimonials[currentSlide].role}</p>
-              </div>
-            </div>
           </div>
+
+          {/* Fade overlay for smooth transition effect */}
+          <div className={`absolute inset-0 bg-gradient-to-br from-orange-100 via-red-100 to-purple-100 rounded-3xl transition-opacity duration-300 pointer-events-none ${isTransitioning ? 'opacity-20' : 'opacity-0'}`}></div>
 
           {/* Navigation arrows */}
           <button
             onClick={prevSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
+            disabled={isTransitioning}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed z-10"
             aria-label="המלצה קודמת"
           >
             <ChevronRight className="w-6 h-6 text-red-600" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
+            disabled={isTransitioning}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed z-10"
             aria-label="המלצה הבאה"
           >
             <ChevronLeft className="w-6 h-6 text-red-600" />
@@ -97,12 +122,13 @@ const TestimonialsSection: React.FC = () => {
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => goToSlide(index)}
+                disabled={isTransitioning}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide
                     ? 'bg-gradient-to-r from-orange-500 to-red-500 scale-125'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
+                    : 'bg-gray-300 hover:bg-gray-400 disabled:opacity-50'
+                } disabled:cursor-not-allowed`}
                 aria-label={`עבור להמלצה ${index + 1}`}
               />
             ))}
