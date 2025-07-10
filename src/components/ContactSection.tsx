@@ -25,7 +25,7 @@ const ContactSection: React.FC = () => {
               <Phone className="w-8 h-8 text-orange-600 mx-auto" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">טלפון</h3>
-            <p className="text-gray-600" itemProp="telephone">0500555005</p>
+            <p className="text-gray-600" itemProp="telephone">0556789538</p>
           </div>
           
           <div className="text-center p-8 bg-gradient-to-br from-red-100 to-purple-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-red-200">
