@@ -23,6 +23,8 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            השנה 
+         
             אטרקציות הקיץ הן חוויה בלתי נשכחת
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed">
@@ -30,12 +32,12 @@ const HeroSection: React.FC = () => {
           </p>
           <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-8 max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl italic leading-relaxed">
-              "הצלחה של פעילות נמדדת קודם כל ביחס האישי, באכפתיות ובתשומת הלב לכל ילדה – ורק אחר כך באטרקציות."
+              "הצלחה של פעילות נמדדת קודם כל ביחס האישי, באכפתיות ובתשומת הלב לכל ילדה – 
+              <br></br>
+              ורק אחר כך באטרקציות."
             </p>
           </div>
-          <p className="text-lg md:text-xl mb-8 max-w-4xl mx-auto leading-relaxed">
-            הפעלות קיץ סוחפות לבנות בגיל גן ובית ספר: מתנפחים, שוקולדים, סדנאות בלונים, טאבון ועוד – הכל באהבה, אחריות, וסדר נעים.
-          </p>
+       
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => scrollToSection('contact')}
