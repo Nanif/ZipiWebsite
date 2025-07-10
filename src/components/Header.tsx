@@ -30,18 +30,18 @@ const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen }) => {
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-4 w-full">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <img 
-              src="/c3d52e4f-5848-47a1-afe2-d620907e2d95.png" 
+              src="/logo.png" 
               alt="JumpKids - קפיצות של אושר" 
               className="h-20 w-auto"
             />
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 space-x-reverse">
+          <nav className="hidden md:flex space-x-8 space-x-reverse flex-shrink-0">
             <button 
               onClick={() => scrollToSection('about')} 
               className="text-gray-700 hover:text-red-600 font-medium transition-colors"
@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen }) => {
           </nav>
           
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex-shrink-0">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 hover:text-red-600 focus:outline-none"

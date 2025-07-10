@@ -20,30 +20,28 @@ const AboutSection: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">ציפי מסינג</h3>
-                <p className="text-xl text-red-600 font-semibold mb-4">מפעילה מקצועית לילדות</p>
+                <p className="text-xl text-red-600 font-semibold mb-4"> מפעילה מקצועית לילדות בס''ד מרובה</p>
               </div>
             </div>
             
             {/* Main description with belief integrated */}
             <div className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
-                אני כאן כדי להפוך כל פעילות לחוויה ערכית, מהנה ומלאת משמעות. עם ניסיון של שנים בהפעלות לילדות בגילאי גן ובית ספר, פיתחתי גישה ייחודית שמבוססת על עיקרון פשוט:
+                אני כאן כדי להפוך כל פעילות לחוויה ערכית, מהנה ומלאת משמעות. עם ניסיון של שנים בהפעלות לילדות בגילאי בית ספר, פיתחתי גישה ייחודית שמבוססת על עיקרון פשוט:
               </p>
               
               <p className="text-xl text-gray-800 font-semibold italic leading-relaxed">
                 "הצלחה של פעילות נמדדת קודם כל ביחס האישי, באכפתיות ובתשומת הלב לכל ילדה – ורק אחר כך באטרקציות."
               </p>
               
-              <p className="text-lg text-gray-700 leading-relaxed">
-                זהו הקו שמנחה אותי בכל פעילות, ובזכותו אני מצליחה ליצור חוויות מרגשות ומשמעותיות, שכל ילדה יוצאת מהן בתחושת שמחה ושייכות.
-              </p>
+   
               
               <p className="text-lg text-gray-700 leading-relaxed">
                 וכל זה – מבלי לוותר לרגע על מקצוענות אמיתית, אנרגיות חיוביות בשמיים, ואטרקציות מקוריות ומרתקות שמלהיבות את הילדות ומשאירות טעם של עוד.
               </p>
               
               <p className="text-lg text-gray-700 leading-relaxed">
-                זה ה"אני מאמין" שלי – ובזכותו כל פעילות הופכת לזיכרון מתוק שהילדות לוקחות איתן גם כשהיום נגמר והן כבר בדרך הביתה עם חיוך.
+                זה ה"אני מאמין" שלי – ובזכותו כל פעילות הופכת לזיכרון מתוק שהילדות וגם הצוות:) לוקחות איתן גם כשהיום נגמר והן כבר בדרך הביתה עם חיוך.
               </p>
             </div>
           </div>
@@ -69,7 +67,7 @@ const AboutSection: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-gray-900 mb-2">שימת לב אמיתית</h4>
-                  <p className="text-gray-700 leading-relaxed">לכל ילדה – אף אחת לא נשארת בצד</p>
+                  <p className="text-gray-700 leading-relaxed">לכל ילדה! אף אחת לא נשארת בצד</p>
                 </div>
               </div>
               
@@ -79,7 +77,7 @@ const AboutSection: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-gray-900 mb-2">אחריות מלאה</h4>
-                  <p className="text-gray-700 leading-relaxed">ניהול רגוע – בלי צעקות, עם לב פתוח ודרכי נועם</p>
+                  <p className="text-gray-700 leading-relaxed">ניהול רגוע – בלי צעקות, עם טכניקות גישור ודרכי נועם</p>
                 </div>
               </div>
             </div>

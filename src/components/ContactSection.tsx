@@ -8,7 +8,7 @@ const ContactSection: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">להזמנות ויצירת קשר</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            רוצה להביא את הקסם גם אליכן? אני זמינה לשאלות, תיאומים והזמנות בהתאמה אישית
+            אני זמינה לשאלות, תיאומים והזמנות בהתאמה אישית
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto rounded-full mt-4"></div>
         </div>
@@ -27,7 +27,7 @@ const ContactSection: React.FC = () => {
               <Mail className="w-8 h-8 text-red-600 mx-auto" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">אימייל</h3>
-            <p className="text-gray-600">zipi@gmail.com</p>
+            <p className="text-gray-600">tz5678910@gmail.com</p>
           </div>
           
           <div className="text-center p-8 bg-gradient-to-br from-purple-100 to-orange-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-200">
